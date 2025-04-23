@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, TouchableOpacity, Dimensions} from "react-native";
+import { Text, Image, View, StyleSheet, TouchableOpacity, Dimensions} from "react-native";
 import { useFonts } from '@expo-google-fonts/bangers/useFonts';
 import { Bangers_400Regular } from '@expo-google-fonts/bangers/400Regular';
 import * as React from 'react';
@@ -31,6 +31,9 @@ const App = () => {
             <Text style={styles.vote}>Vote </Text>
           </Text>
         </View>
+        <View style={{flex: 2, alignItems: 'center'}}>
+        <Image style={styles.icon} source={require('../assets/images/willpower.png')} />
+        </View>
         <View style={styles.bottomView}>
         <TouchableOpacity style={styles.loginButton}
            onPress={() =>
@@ -59,6 +62,11 @@ const App = () => {
 export default App;
 
 const styles= StyleSheet.create({
+  icon:{
+    justifyContent:'center', 
+    width: 100, 
+    height: 100
+  },
   container: {
     backgroundColor: "#fffaf0",
     flexDirection: 'column',
