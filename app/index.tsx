@@ -4,11 +4,15 @@ import { Bangers_400Regular } from '@expo-google-fonts/bangers/400Regular';
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import { Link } from 'expo-router';
+import { useRouter } from 'expo-router';
+
 
 
 const width = Dimensions.get('window').width;
 
+
 const App = () => {
+  const router = useRouter();
 
   let [fontsLoaded] = useFonts({
     Bangers_400Regular
@@ -28,11 +32,19 @@ const App = () => {
           </Text>
         </View>
         <View style={styles.bottomView}>
-        <TouchableOpacity style={styles.loginButton}>
+        <TouchableOpacity style={styles.loginButton}
+           onPress={() =>
+            router.navigate('/tabs/home')
+          }>
           <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.loginButton}>
+        <TouchableOpacity style={styles.loginButton}
+        onPress={() =>
+          router.navigate('/tabs/home')
+        }
+        >
           <Text style={styles.loginText}>Create Account</Text>
+          
         </TouchableOpacity>
         </View>
       </View>
