@@ -2,16 +2,12 @@ import { Text, Image, View, StyleSheet, TouchableOpacity, Dimensions} from "reac
 import { useFonts } from '@expo-google-fonts/bangers/useFonts';
 import { Bangers_400Regular } from '@expo-google-fonts/bangers/400Regular';
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import { Link } from 'expo-router';
 import { useRouter } from 'expo-router';
-
-
 
 const width = Dimensions.get('window').width;
 
-
 const App = () => {
+ 
   const router = useRouter();
 
   let [fontsLoaded] = useFonts({
@@ -47,13 +43,10 @@ const App = () => {
         }
         >
           <Text style={styles.loginText}>Create Account</Text>
-          
         </TouchableOpacity>
         </View>
       </View>
   
-      
-      
     );
   }
 
