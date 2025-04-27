@@ -3,7 +3,6 @@ import  Poll from "../components/poll"
 import { Link, Tabs } from 'expo-router';
 
 
-
 const Settings = () => {
 
 

@@ -1,14 +1,41 @@
-import { Text, Image, View, StyleSheet, TouchableOpacity, Dimensions} from "react-native";
+import { Text, Image, View, StyleSheet, TouchableOpacity, Dimensions, TextInput} from "react-native";
 import { useFonts } from '@expo-google-fonts/bangers/useFonts';
 import { Bangers_400Regular } from '@expo-google-fonts/bangers/400Regular';
 import * as React from 'react';
+import {useState} from 'react';
 import { useRouter } from 'expo-router';
+import { auth } from '../FirebaseConfig';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 const width = Dimensions.get('window').width;
 
 const App = () => {
- 
   const router = useRouter();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const signIn = async () => {
+    try{
+      const user = await signInWithEmailAndPassword(auth, email, password)
+      if (user) router.replace('./tabs/home');
+    } catch (error: any) {
+      console.log(error)
+      alert(('Sign in failed: ') + error.message);
+    }
+  };
+
+  const signUp = async () => {
+    try{
+      const user = await createUserWithEmailAndPassword(auth, email, password)
+      if (user) router.replace('./tabs/home');
+    } catch (error: any) {
+      console.log(error)
+      alert(('Sign in failed: ') + error.message);
+    }
+  };
+ 
+  
 
   let [fontsLoaded] = useFonts({
     Bangers_400Regular
@@ -22,6 +49,8 @@ const App = () => {
       style={styles.container}
       >
         <View style={{flex: 1, alignItems: 'center'}}>
+        <TextInput placeholder="email" value={email} onChangeText={setEmail}></TextInput>
+        <TextInput placeholder="password" value={password} onChangeText={setPassword}></TextInput>
           <Text>
             <Text style={styles.we}>We </Text>
             <Text style={styles.vote}>Vote </Text>
@@ -31,15 +60,15 @@ const App = () => {
         <Image style={styles.icon} source={require('../assets/images/willpower.png')} />
         </View>
         <View style={styles.bottomView}>
+         
         <TouchableOpacity style={styles.loginButton}
-           onPress={() =>
-            router.navigate('/tabs/home')
+           onPress={
+            signIn
           }>
-          <Text style={styles.loginText}>Login</Text>
+          <Text style={styles.loginText}>LOGINNN</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.loginButton}
-        onPress={() =>
-          router.navigate('/tabs/home')
+        onPress={signUp
         }
         >
           <Text style={styles.loginText}>Create Account</Text>
