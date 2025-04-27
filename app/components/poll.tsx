@@ -56,12 +56,12 @@ export default function Poll() {
              marginRight: 20,
            }}>
            {renderDot('#006DFF')}
-           <Text style={{color: 'white'}}>Yes</Text>
+           <Text style={{color: 'white'}}>Yes {poll.yesPercent} %</Text>
          </View>
          <View
            style={{flexDirection: 'row', alignItems: 'center', width: 120}}>
            {renderDot('#3BE9DE')}
-           <Text style={{color: 'white'}}>No</Text>
+           <Text style={{color: 'white'}}>No {poll.noPercent} %</Text>
          </View>
        </View>
 
