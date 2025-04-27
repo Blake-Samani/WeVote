@@ -1,6 +1,7 @@
 import { Text, View, StyleSheet, TouchableOpacity, Dimensions, Button} from "react-native";
 import { Link, Tabs } from 'expo-router';
-import  Poll from "../components/poll"
+import Poll from "../components/poll"
+import SignOut from "../components/signout";
 
 const Home = () => {
     
@@ -18,7 +19,7 @@ const Home = () => {
         <Poll></Poll>
         </View>
         
-        
+        <SignOut></SignOut>
     </View>
     
     );
