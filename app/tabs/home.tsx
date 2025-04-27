@@ -5,15 +5,35 @@ import  Poll from "../components/poll"
 const Home = () => {
     
 
-    return ( <View>
+    return ( <View style={styles.container}>
+        <View style={{flex: 1}}>
         <Link href="/" asChild>
             <Button 
             title="home pages /back to home"
             ></Button>
         </Link>
+        </View>
+       
+        <View style={{flex: 3}}>
         <Poll></Poll>
+        </View>
         
-    </View> );
+        
+    </View>
+    
+    );
 }
  
 export default Home;
+
+const styles= StyleSheet.create({
+
+  container: {
+    backgroundColor: "#fffaf0",
+    flexDirection: 'column',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+})

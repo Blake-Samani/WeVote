@@ -1,5 +1,5 @@
 import { Text, View, StyleSheet, TouchableOpacity, Dimensions, Button} from "react-native";
-
+import  Poll from "../components/poll"
 import { Link, Tabs } from 'expo-router';
 
 const Settings = () => {
@@ -11,6 +11,7 @@ const Settings = () => {
             title="settings pages/ back to home"
             ></Button>
         </Link>
+        <Poll></Poll>
         
     </View> );
 }
