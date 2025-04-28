@@ -6,6 +6,7 @@ import {useState} from 'react';
 import { useRouter } from 'expo-router';
 import { auth } from '../FirebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import LoginModal from "./components/loginModal";
 
 const width = Dimensions.get('window').width;
 
@@ -62,17 +63,12 @@ const App = () => {
         <View style={styles.bottomView}>
          
         <TouchableOpacity style={styles.loginButton}
-           onPress={
-            signIn
-          }>
-          <Text style={styles.loginText}>LOGINNN</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.loginButton}
         onPress={signUp
         }
         >
           <Text style={styles.loginText}>Create Account</Text>
         </TouchableOpacity>
+        <LoginModal></LoginModal>
         </View>
       </View>
   
