@@ -50,8 +50,6 @@ const App = () => {
       style={styles.container}
       >
         <View style={{flex: 1, alignItems: 'center'}}>
-        <TextInput placeholder="email" value={email} onChangeText={setEmail}></TextInput>
-        <TextInput placeholder="password" value={password} onChangeText={setPassword}></TextInput>
           <Text>
             <Text style={styles.we}>We </Text>
             <Text style={styles.vote}>Vote </Text>
@@ -61,13 +59,6 @@ const App = () => {
         <Image style={styles.icon} source={require('../assets/images/willpower.png')} />
         </View>
         <View style={styles.bottomView}>
-         
-        <TouchableOpacity style={styles.loginButton}
-        onPress={signUp
-        }
-        >
-          <Text style={styles.loginText}>Create Account</Text>
-        </TouchableOpacity>
         <LoginModal></LoginModal>
         </View>
       </View>
@@ -112,7 +103,7 @@ const styles= StyleSheet.create({
   },
   bottomView:{
     position: 'absolute',
-    bottom: 0,
+    bottom: 20,
     justifyContent: 'space-between',
   },
   loginText:{
