@@ -9,6 +9,7 @@ const LoginModal: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  //union type, can only be sign in or sign up, default is sign in
   const [authMode, setAuthMode] = useState<'signIn' | 'signUp'>('signIn');
   const router = useRouter();
 

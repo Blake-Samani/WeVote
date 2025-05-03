@@ -14,11 +14,9 @@ const Home = () => {
             ></Button>
         </Link>
         </View>
-       
         <View style={{flex: 3}}>
         <Poll></Poll>
         </View>
-        
         <SignOut></SignOut>
     </View>
     

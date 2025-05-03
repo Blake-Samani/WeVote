@@ -12,6 +12,7 @@ export default function Poll() {
     noPercent: 0,
     total: 0,
     winner: '',
+    hasVoted: [],
  });
 
  const pieData = [
@@ -25,7 +26,7 @@ export default function Poll() {
       },
  ];
 
- const renderDot = (color) => {
+ const renderDot = (color: string) => {
    return (
      <View
        style={{

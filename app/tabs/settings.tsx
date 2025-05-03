@@ -1,6 +1,8 @@
 import { Text, View, StyleSheet, TouchableOpacity, Dimensions, Button} from "react-native";
 import  Poll from "../components/poll"
+import AdminSettings from "../components/adminSettings";
 import { Link, Tabs } from 'expo-router';
+import SignOut from "../components/signout";
 
 
 const Settings = () => {
@@ -12,7 +14,9 @@ const Settings = () => {
             title="settings pages/ back to home"
             ></Button>
         </Link>
-        <Poll></Poll>
+        <SignOut></SignOut>
+        <AdminSettings></AdminSettings>
+        
         
         
     </View> );
