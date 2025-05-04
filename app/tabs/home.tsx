@@ -6,18 +6,21 @@ import SignOut from "../components/signout";
 const Home = () => {
     
 
-    return ( <View style={styles.container}>
-        <View style={{flex: 1}}>
+    return ( 
+      <View style={styles.container}>
+      {/* Optional top link */}
+      <View style={styles.topBar}>
         <Link href="/" asChild>
-            <Button 
-            title="home pages /back to home"
-            ></Button>
+          <Button title="Home / Back to Home" />
         </Link>
-        </View>
-        <View style={{flex: 3}}>
-        <Poll></Poll>
-        </View>
-        <SignOut></SignOut>
+      </View>
+
+      {/* Poll list fills most of screen */}
+      <View style={styles.listContainer}>
+        <Poll />
+      </View>
+
+      <SignOut />
     </View>
     
     );
@@ -28,11 +31,15 @@ export default Home;
 const styles= StyleSheet.create({
 
   container: {
-    backgroundColor: "#fffaf0",
-    flexDirection: 'column',
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "#fffaf0",
+  },
+  topBar: {
+    padding: 10,
+  },
+  listContainer: {
+    flex: 1,
+    paddingHorizontal: 16,
   },
 
 })

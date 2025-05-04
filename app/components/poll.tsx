@@ -12,7 +12,7 @@ export default function Poll() {
     noPercent: 0,
     total: 0,
     winner: '',
-    hasVoted: [],
+    category: '',
  });
 
  const pieData = [
