@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.blakesamani.wevote"
     },
     "web": {
       "bundler": "metro",
@@ -33,7 +34,7 @@
           "backgroundColor": "#ffffff"
         }
       ],
-      "expo-font" 
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true

@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "169615202545",
+    "project_id": "wvote-ce6f4",
+    "storage_bucket": "wvote-ce6f4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:169615202545:android:7ed13d6340250b4f92b150",
+        "android_client_info": {
+          "package_name": "com.blakesamani.wevote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "169615202545-5ifuqdn1leac9v4abkj67gq9p9rs9d9s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blakesamani.wevote",
+            "certificate_hash": "1bb45b6bf0e4f98fe66f8f57152cf39e7dab5e10"
+          }
+        },
+        {
+          "client_id": "169615202545-cde88dk03alus59e2dbmrvmu7k4e7peb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjqpHRcV-ifsvYbdwbd6phLRJBs_DQkik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "169615202545-cde88dk03alus59e2dbmrvmu7k4e7peb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "169615202545-3mbu74tls7a9bdcd54q1rmb28vvj7tud.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.blake-samani.wevote"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
