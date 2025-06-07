@@ -8,6 +8,7 @@ import {
   Modal,
   Pressable,
 } from 'react-native';
+import Poll from '../components/poll'; // Reusable Poll component
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../../FirebaseConfig';
 
@@ -26,17 +27,19 @@ export default function PollList() {
   const [polls, setPolls] = useState<Poll[]>([]);
   const [selectedPoll, setSelectedPoll] = useState<Poll | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
-//listening to db
+
+  //listening to db
   useEffect(() => {
     const unsub = onSnapshot(collection(db, 'polls'), (snap) => {
       const data = snap.docs
         .map((doc) => ({ id: doc.id, ...doc.data() } as Poll))
-        .filter((poll) => poll.pollName);
+        .filter((poll) => poll.pollName); // basic validation
       setPolls(data);
     });
     return () => unsub();
   }, []);
-//argument: type
+
+  //argument: type
   const openPoll = (poll: Poll) => {
     setSelectedPoll(poll);
     setModalVisible(true);
@@ -55,6 +58,7 @@ export default function PollList() {
         contentContainerStyle={styles.listContent}
         renderItem={({ item }) => (
           <TouchableOpacity style={styles.pollCard} onPress={() => openPoll(item)}>
+            {/* Poll summary in card */}
             <Text style={styles.pollTitle}>{item.pollName}</Text>
             <Text>Yes: {item.yesCount} ({item.yesPercent}%)</Text>
             <Text>No: {item.noCount} ({item.noPercent}%)</Text>
@@ -83,11 +87,8 @@ export default function PollList() {
             } */}
             {selectedPoll && (
               <>
-                <Text style={styles.modalTitle}>{selectedPoll.pollName}</Text>
-                <Text>Yes: {selectedPoll.yesCount} ({selectedPoll.yesPercent}%)</Text>
-                <Text>No: {selectedPoll.noCount} ({selectedPoll.noPercent}%)</Text>
-                <Text>Total: {selectedPoll.total}</Text>
-                <Text>Winner: {selectedPoll.winner}</Text>
+                {/* Full Poll view rendered in modal */}
+                <Poll initialPoll={selectedPoll} />
 
                 <Pressable style={styles.closeButton} onPress={closeModal}>
                   <Text style={styles.closeButtonText}>Close</Text>
