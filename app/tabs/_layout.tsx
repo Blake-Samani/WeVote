@@ -21,7 +21,7 @@ export default function HomeLayout() {
           }}
         />
           <Tabs.Screen
-          name="browsePoll"
+          name="browsePolls"
           options={{
             title: 'Browse Polls',
             tabBarIcon: ({ color }) => <FontAwesome5 size={28} name="poll" color={color} />,
