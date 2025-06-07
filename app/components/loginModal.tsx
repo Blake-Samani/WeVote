@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { View, Text, Modal, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { useRouter } from 'expo-router';
-import { auth } from '../../FirebaseConfig';
+import { auth, db } from '../../FirebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 
 const LoginModal: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -26,7 +27,15 @@ const LoginModal: React.FC = () => {
 
   const signUp = async () => {
     try {
-      const user = await createUserWithEmailAndPassword(auth, email, password);
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+          // Add user to Firestore users collection with uid as doc ID
+        await setDoc(doc(db, "users", user.uid), {
+          email: user.email,
+          createdAt: serverTimestamp(),
+        });
+
       if (user) router.replace('./tabs/home');
     } catch (error: any) {
       console.log(error);
