@@ -1,3 +1,4 @@
+I built this app as a proof of concept. It was made with mostly me, the only thing I used AI for was some styling things. Its barebones, but shows I am capable of understanding react hooks and state management.
 # WeVote
 My personal app created using React Native
 # Welcome to your Expo app 👋
